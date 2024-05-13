@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Productos</title>
+</head>
+<body>
+<h1>Nuestros Productos</h1>
+
+{% if inventario_al_dia %}
+<p style="padding:15px; background-color: green; color: white;">HAY STOCK </p>
+{% else %}
+<p style="padding:15px; background-color: red; color: white;">NO HAY STOCK</p>
+{% endif %}
+
+<a href="{% url 'index' %}">Volver al Inicio</a>
+
+    <section>
+
+        {% for productos in productos %}       
+            <article>
+                <p>{{ productos }}</p>
+            </article>
+
+        {% empty %}
+            <article>
+                <p>No hay productos cargados</p>
+            </article>
+        {% endfor %}
+    </section>
+
+
+    
+</body>
+</html>

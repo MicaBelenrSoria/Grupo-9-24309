@@ -11,3 +11,17 @@ def index(request):
     }
 
     return render(request,'web/index.html', context)
+
+def listado_productos(request):
+
+    contexto = {
+        'productos': [
+            'Teclado Noga',
+            'Monitor Samsung',
+            'Mouse Noga'
+        ],
+
+        'inventario_al_dia': True
+    }
+
+    return render(request, 'web/listado_productos.html', contexto)

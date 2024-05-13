@@ -6,9 +6,16 @@
     <title>Tienda Tegnologia</title>
 </head>
 <body>
+    <header>
     <h1>Bienvenidos a la Tienda de Tegnologia</h1>
-    <p>Bienvenid@s {{ nombre }}</p>
-    
+        <nav>
+            <li><a href="{% url 'index' %}">Inicio</a></li>
+            <li><a href="{% url 'listado_productos' %}">Productos</a></li>
+        </nav>
+    </header>
+    <main>
+        <p>Bienvenid@s {{ nombre }}</p>
+    </main>
     <footer>
         <p>{{fecha_hora}}</p>
     </footer>
