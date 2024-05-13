@@ -5,8 +5,8 @@
 {% block extra_css %}{% endblock %}
 
 {% block main %}
-    <h2>Listado de alumnos</h2>
-    {% if cuota_al_dia %}
+    <h2>Listado de Productos</h2>
+    {% if inventario_al_dia %}
             <p style="padding:15px; background-color: green; color: white;">NO DEBE DINERO</p>
     {% else %}
         <p style="padding:15px; background-color: red; color: white;">DEBE LA CUOTA</p>
@@ -15,14 +15,14 @@
     <a href="{% url 'index' %}">Volver</a>
 
     <section>
-        {% for alumno in alumnos %}
+        {% for productos in productos %}
             <article>
-                <p>{{ alumno | upper }}</p>
+                <p>{{ Productos | upper }}</p>
             </article>
 
         {% empty %}
             <article>
-                <p>No hay alumnos cargados</p>
+                <p>No hay productos cargados</p>
             </article>
         {% endfor %}
     </section>
