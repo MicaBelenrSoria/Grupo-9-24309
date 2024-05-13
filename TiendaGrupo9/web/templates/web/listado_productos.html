@@ -1,36 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Productos</title>
-</head>
-<body>
-<h1>Nuestros Productos</h1>
+{% extends "TiendaGrupo9\web\templates\web\bases.html" %}
 
-{% if inventario_al_dia %}
-<p style="padding:15px; background-color: green; color: white;">HAY STOCK </p>
-{% else %}
-<p style="padding:15px; background-color: red; color: white;">NO HAY STOCK</p>
-{% endif %}
+{% block titulo %} Listado de alumnos {% endblock %}
 
-<a href="{% url 'index' %}">Volver al Inicio</a>
+{% block extra_css %}{% endblock %}
+
+{% block main %}
+    <h2>Listado de alumnos</h2>
+    {% if cuota_al_dia %}
+            <p style="padding:15px; background-color: green; color: white;">NO DEBE DINERO</p>
+    {% else %}
+        <p style="padding:15px; background-color: red; color: white;">DEBE LA CUOTA</p>
+    {% endif %}
+
+    <a href="{% url 'index' %}">Volver</a>
 
     <section>
-
-        {% for productos in productos %}       
+        {% for alumno in alumnos %}
             <article>
-                <p>{{ productos }}</p>
+                <p>{{ alumno | upper }}</p>
             </article>
 
         {% empty %}
             <article>
-                <p>No hay productos cargados</p>
+                <p>No hay alumnos cargados</p>
             </article>
         {% endfor %}
     </section>
-
-
-    
-</body>
-</html>
+{% endblock %}
