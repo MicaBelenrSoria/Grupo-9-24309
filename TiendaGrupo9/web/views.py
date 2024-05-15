@@ -14,7 +14,7 @@ def index(request):
 
 def listado_productos(request):
 
-    contexto = {
+    context = {
         'productos': [
             'Teclado Noga',
             'Monitor Samsung',
@@ -24,4 +24,4 @@ def listado_productos(request):
         'inventario_al_dia': True
     }
 
-    return render(request, 'web/listado_productos.html', contexto)
+    return render(request, 'web/listado_productos.html', context)

@@ -1,4 +1,4 @@
-{% extends "TiendaGrupo9\web\templates\web\bases.html" %}
+{% extends "web\bases.html" %}
 
 {% block titulo %} Listado de Productos {% endblock %}
 
@@ -15,9 +15,9 @@
     <a href="{% url 'index' %}">Volver</a>
 
     <section>
-        {% for productos in productos %}
+        {% for Producto in productos %}
             <article>
-                <p>{{ Productos | upper }}</p>
+                <p>{{ Producto}}</p>
             </article>
 
         {% empty %}
