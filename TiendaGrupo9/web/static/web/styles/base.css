@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* colores a editar a eleccion del grupo */
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: rgb(252, 254, 193);
+}
+
+header{
+    
+    background-color: gray;
+    padding: 10px;
+}
+
+/* barra de nav para q se muetre horizontal */
+nav ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+/* borrar el color violeta y el puntito de la lista , color  las letras y un borde arriba */
+li a{
+    border-top:solid 1.5px yellow ;
+    color: white;
+    text-decoration: none ;
+    outline: none;
+    margin-left:10px;
+}
+footer{
+    background-color: gray;
+    padding: 14px;
+   text-align: center;
+}
+main{
+    flex: 1;
+    text-align: center;
+   
+}
+/* class para el titulo */
+.alineado_medio{
+    display: flex;
+    justify-content: center;
+   align-items: end;
+    padding: 15px;
+    margin: 10px 25% 10px 25%;
+    color: rgb(0, 0, 0);
+    background-color: aquamarine;
+    border: solid gray;
+    border-radius:15px;
+
+}

@@ -1,10 +1,15 @@
-{% extends "web\bases.html" %}
+
+{% extends "web\base.html" %}
+{% load static%}
 
 {% block titulo %}Inicio{% endblock %}
 
-<!-- {% block extra_css %}{% endblock %} -->
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'web/styles/index.css' %}">
+{% endblock %}
 
 {% block main %}
-    <p>Bienvenidos {{ nombre }}</p>
+    <h2>Bienvenidos {{ nombre }}</h2>
     <p>{{ fecha_hora }}</p>
+    <img src="{% static 'web/img/local2.jpg'%}" alt="tienda de informatica">
 {% endblock %}
