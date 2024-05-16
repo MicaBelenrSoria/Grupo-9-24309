@@ -12,9 +12,22 @@ h2:hover {
     background-color: #FFF8DC; /* amarillo pastel más claro */
     transform: scale(1.05);
 }
-
+.contenedor_txt_y_fot{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #FFFACD; /* Fondo amarillo pastel */
+    box-shadow: 0px 0px 15px 0.5px ;
+    border-radius: 5px;
+    padding: 38px;
+}
 .img-small {
-    max-width: 200px; /* Ajusta el tamaño máximo según tus necesidades */
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    max-width: 500px; /* Ajusta el tamaño máximo según tus necesidades */
+    margin: 0 35px;
     height: auto;
     border-radius: 10px; /* Opcional: para redondear las esquinas */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opcional: para añadir sombra */
@@ -26,15 +39,15 @@ h2:hover {
 }
 
 .text-center {
+    flex: 1;
     text-align: center;
-    max-width: 600px; /* Ancho máximo para evitar estiramiento */
-    margin: 0 auto; /* Centrar horizontalmente */
-    font-size: 18px; /* Aumentar tamaño de la fuente */
+    margin: 0 25px;
+    max-width: 500px; /* Ancho máximo para evitar estiramiento */
+   
+    font-size: 20px; /* Aumentar tamaño de la fuente */
     line-height: 1.5; /* Mejorar legibilidad */
     padding: 15px; /* Espaciado interno */
-    color: #333; /* Color de texto */
-    background-color: #FFFACD; /* Fondo amarillo pastel */
-    border: solid 2px #B0B0B0; /* Borde gris */
-    border-radius: 10px; /* Esquinas redondeadas */
+    color: #6d6d6d; /* Color de texto */
+    
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
 }
