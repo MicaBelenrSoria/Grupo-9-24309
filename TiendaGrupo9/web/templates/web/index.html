@@ -9,7 +9,25 @@
 {% endblock %}
 
 {% block main %}
-    <h2>Bienvenidos {{ nombre }}</h2>
-    <p>{{ fecha_hora }}</p>
-    <img src="{% static 'web/img/local2.jpg'%}" alt="tienda de informatica">
+<br>
+<br>
+<div class="text-center">
+<p>¡Hola, {{ nombre }}!
+
+    Nos complace darte la bienvenida a nuestro sitio web. En nuestra tienda, nos
+    dedicamos a ofrecerte lo mejor en productos y servicios de informática.
+    Desde los últimos dispositivos tecnológicos hasta el soporte técnico más
+    confiable, estamos aquí para ayudarte a encontrar justo lo que necesitas.
+    Explora nuestras categorías, descubre nuestras ofertas especiales y no dudes
+    en ponerte en contacto con nosotros para cualquier consulta. ¡Gracias por
+    visitarnos y esperamos poder servirte pronto!
+</p>
+</div>
+<br>
+<br>
+<p>{{ fecha_hora }}</p>
+<br>
+<br>
+<img src="{% static 'web/img/local2.jpg' %}" alt="tienda de informatica"
+    class="img-small">
 {% endblock %}

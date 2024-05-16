@@ -1,29 +1,24 @@
-{% extends "web\base.html" %}
+{% extends "web/base.html" %}
+{% load static %}
 
-{% block titulo %} Listado de Productos {% endblock %}
+{% block titulo %}Productos{% endblock %}
 
-{% block extra_css %}{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'web/styles/products.css' %}">
+{% endblock %}
 
 {% block main %}
-    <h2>Listado de Productos</h2>
-    {% if inventario_al_dia %}
-            <p style="padding:15px; background-color: green; color: white;">NO DEBE DINERO</p>
-    {% else %}
-        <p style="padding:15px; background-color: red; color: white;">DEBE LA CUOTA</p>
-    {% endif %}
-
-    <a href="{% url 'index' %}">Volver</a>
-
-    <section>
-        {% for Producto in productos %}
-            <article>
-                <p>{{ Producto}}</p>
-            </article>
-
-        {% empty %}
-            <article>
-                <p>No hay productos cargados</p>
-            </article>
+    <h2>Productos Disponibles</h2>
+    <div class="product-list">
+        {% for producto in productos %}
+            <div class="product-card">
+                <img src="{% static producto.imagen_url %}" alt="{{ producto.nombre }}" class="product-image">
+                <div class="product-info">
+                    <h3>{{ producto.nombre }}</h3>
+                    <p>{{ producto.descripcion }}</p>
+                    <span class="product-price">${{ producto.precio }}</span>
+                </div>
+            </div>
         {% endfor %}
-    </section>
+    </div>
 {% endblock %}

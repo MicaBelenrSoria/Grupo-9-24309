@@ -1,55 +1,82 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-/* colores a editar a eleccion del grupo */
-body{
+
+/* Colores a elección del grupo */
+body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: rgb(252, 254, 193);
+    background-color: #E0E0E0; /* gris claro */
+    font-family: 'Arial', sans-serif;
 }
 
-header{
-    
-    background-color: gray;
+header {
+    background-color: #B0B0B0; /* gris */
     padding: 10px;
+    text-align: center; /* Centra el contenido del header */
 }
 
-/* barra de nav para q se muetre horizontal */
-nav ul{
+/* Barra de nav para que se muestre horizontal y centrado */
+nav {
+    background-color: #666666; /* gris oscuro */
+    padding: 10px;
+    display: flex;
+    justify-content: center; /* Centra los elementos de navegación */
+}
+
+nav ul {
     display: flex;
     flex-direction: row;
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
-/* borrar el color violeta y el puntito de la lista , color  las letras y un borde arriba */
-li a{
-    border-top:solid 1.5px yellow ;
+
+nav ul li a {
+    border-top: solid 1.5px #FFFACD; /* amarillo pastel */
     color: white;
-    text-decoration: none ;
-    outline: none;
-    margin-left:10px;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 10px;
+    transition: color 0.3s ease, border-top-color 0.3s ease;
 }
-footer{
-    background-color: gray;
+
+nav ul li a:hover {
+    color: #FFFACD; /* amarillo pastel */
+    border-top-color: #FFF8DC; /* amarillo pastel más claro */
+}
+
+footer {
+    background-color: #B0B0B0; /* gris */
     padding: 14px;
-   text-align: center;
+    text-align: center;
 }
-main{
+
+main {
     flex: 1;
     text-align: center;
-   
+    padding: 20px;
 }
-/* class para el titulo */
-.alineado_medio{
+
+/* Clase para el título */
+.alineado_medio {
     display: flex;
     justify-content: center;
-   align-items: end;
+    align-items: center;
     padding: 15px;
-    margin: 10px 25% 10px 25%;
-    color: rgb(0, 0, 0);
-    background-color: aquamarine;
-    border: solid gray;
-    border-radius:15px;
+    margin: 10px 25%;
+    color: #333333; /* gris oscuro */
+    background-color: #FFFACD; /* amarillo pastel */
+    border: solid 2px #B0B0B0; /* gris */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
 
+.alineado_medio:hover {
+    background-color: #FFF8DC; /* amarillo pastel más claro */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }

@@ -13,12 +13,26 @@ def index(request):
     return render(request,'web/index.html', context)
 
 def listado_productos(request):
-
     context = {
         'productos': [
-            'Teclado Noga',
-            'Monitor Samsung',
-            'Mouse Noga'
+            {
+                'nombre': 'Teclado Noga',
+                'descripcion': 'Un teclado ergonómico con retroiluminación LED.',
+                'precio': 25.00,
+                'imagen_url': '.\web\static\web\img\teclado_noga.jpg'
+            },
+            {
+                'nombre': 'Monitor Samsung',
+                'descripcion': 'Monitor de 24 pulgadas con resolución Full HD.',
+                'precio': 150.00,
+                'imagen_url': '.\web\static\web\img\monitor_samsung.webp'
+            },
+            {
+                'nombre': 'Mouse Noga',
+                'descripcion': 'Mouse óptico con sensor de alta precisión.',
+                'precio': 15.000,
+                'imagen_url': '.\web\static\web\img\mouse_noga.jpeg'
+            }
         ],
 
         'inventario_al_dia': True

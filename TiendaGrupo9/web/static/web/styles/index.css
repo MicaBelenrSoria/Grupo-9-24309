@@ -1,13 +1,40 @@
-h2{
+h2 {
     font-size: 30px;
-    background-color: yellow;
+    background-color: #FFFACD; /* amarillo pastel */
     display: inline-block;
-    flex-direction: column;
-    justify-content: center;
-    border: solid 2px gray;
+    border: solid 2px #B0B0B0; /* gris */
     border-radius: 10px;
     padding: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-      
+h2:hover {
+    background-color: #FFF8DC; /* amarillo pastel más claro */
+    transform: scale(1.05);
+}
 
+.img-small {
+    max-width: 200px; /* Ajusta el tamaño máximo según tus necesidades */
+    height: auto;
+    border-radius: 10px; /* Opcional: para redondear las esquinas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opcional: para añadir sombra */
+    transition: transform 0.3s ease; /* Opcional: para efecto de transición */
+}
+
+.img-small:hover {
+    transform: scale(1.05); /* Opcional: para efecto hover */
+}
+
+.text-center {
+    text-align: center;
+    max-width: 600px; /* Ancho máximo para evitar estiramiento */
+    margin: 0 auto; /* Centrar horizontalmente */
+    font-size: 18px; /* Aumentar tamaño de la fuente */
+    line-height: 1.5; /* Mejorar legibilidad */
+    padding: 15px; /* Espaciado interno */
+    color: #333; /* Color de texto */
+    background-color: #FFFACD; /* Fondo amarillo pastel */
+    border: solid 2px #B0B0B0; /* Borde gris */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
