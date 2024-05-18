@@ -22,19 +22,19 @@ def listado_productos(request):
                 'nombre': 'Teclado Noga',
                 'descripcion': 'Un teclado ergonómico con retroiluminación LED.',
                 'precio': 25.00,
-                'imagen_url': '.\web\static\web\img\teclado_noga.jpg',
+                'imagen_url': 'web/img/teclado_noga.jpg',
             },
             {
                 'nombre': 'Monitor Samsung',
                 'descripcion': 'Monitor de 24 pulgadas con resolución Full HD.',
                 'precio': 150.00,
-                'imagen_url': '.\web\static\web\img\monitor_samsung.webp',
+                'imagen_url': 'web/img/monitor_samsung.webp',
             },
             {
                 'nombre': 'Mouse Noga',
                 'descripcion': 'Mouse óptico con sensor de alta precisión.',
                 'precio': 15.000,
-                'imagen_url': '.\web\static\web\img\mouse_noga.jpeg',
+                'imagen_url': 'web/img/mouse_noga.jpeg',
             }
         ],
     }
@@ -43,6 +43,6 @@ def listado_productos(request):
 
 def alta_productos(request):
     contexto = {
-        'alta_alumno_form': AltaProductosForms(),
+        'alta_productos_form': AltaProductosForms(),
     }
     return render(request, 'web/alta_productos.html', contexto)
