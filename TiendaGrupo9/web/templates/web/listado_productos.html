@@ -4,7 +4,7 @@
 {% block titulo %}Productos{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'web/styles/products.css' %}">
+<link rel="stylesheet" href="{% static 'web/styles/listado_productos.css' %}">
 {% endblock %}
 
 {% block main %}
@@ -13,10 +13,10 @@
         {% for producto in productos %}
             <div class="product-card">
                 <img src="{% static producto.imagen_url %}" alt="{{ producto.nombre }}" class="product-image">
-                <div class="product-info">
-                    <h3>{{ producto.nombre }}</h3>
+                <div>
+                    <h3 id="product-info">{{ producto.nombre }}</h3>
                     <p>{{ producto.descripcion }}</p>
-                    <span class="product-price">${{ producto.precio }}</span>
+                    <span id="product-price">${{ producto.precio }}</span>
                 </div>
             </div>
         {% endfor %}

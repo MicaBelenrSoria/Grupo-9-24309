@@ -9,8 +9,9 @@
 }
 
 .product-card {
-    background-color: #FFFACD; /* amarillo pastel */
-    border: 1px solid #B0B0B0; /* gris */
+    background-color: #e8aa8c; 
+    color: #5e616a;
+    border: 1px solid #5e616a;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -22,6 +23,8 @@
 .product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: #5e616a; 
+    color: #e8aa8c;
 }
 
 .product-image {
@@ -40,12 +43,13 @@
 
 .product-info p {
     font-size: 14px;
-    color: #666;
+    color: #5e616a;
     margin-bottom: 10px;
 }
 
 .product-price {
     font-size: 18px;
-    color: #333;
+    color: #5e616a;
     font-weight: bold;
 }
+
