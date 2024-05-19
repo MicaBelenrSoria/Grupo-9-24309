@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Oswald'
 }
 
 /* Colores a elección del grupo */
@@ -10,14 +11,43 @@ body {
     flex-direction: column;
     height: 100vh;
     background-color: #E0E0E0; /* gris claro */
-    font-family: 'Arial', sans-serif;
 }
 
+/*-------HEADER INICIO-----------------*/
 header {
-    background-color: #B0B0B0; /* gris */
-    padding: 10px;
-    text-align: center; /* Centra el contenido del header */
+    display: flex; 
+    align-items: center; 
+    justify-content: space-evenly;
+    padding: 1px 20px;
+    background-color: #e8aa8c;
 }
+
+.texto-header {
+text-align: center;
+color: #5e616a;
+}
+
+.img-logo {
+    width: 50%;
+    border-radius: 10px; /* Opcional: para redondear las esquinas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /*Opcional: para añadir sombra */
+    transition: transform 0.3s ease;  /*Opcional: para efecto de transición */
+}
+
+/*--------HEADER FIN------------------*/
+
+/*--------FOOTER INICIO---------------*/
+footer {
+background-color: #5e616a; /* gris */
+padding: 14px;
+text-align: center;
+}
+
+.texto-footer {
+text-align: center;
+color: #e8aa8c;
+}
+/*---------FOOTER FIN-----------------*/
 
 /* Barra de nav para que se muestre horizontal y centrado */
 nav {
@@ -49,11 +79,6 @@ nav ul li a:hover {
     border-top-color: #FFF8DC; /* amarillo pastel más claro */
 }
 
-footer {
-    background-color: #B0B0B0; /* gris */
-    padding: 14px;
-    text-align: center;
-}
 
 main {
     flex: 1;
