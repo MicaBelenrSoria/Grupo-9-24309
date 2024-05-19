@@ -9,7 +9,7 @@ def index(request):
 
     # Accede a la base de datos atraves de los modelos 
     context = {
-        'nombre': 'Comunidad Tengnologica', #Se le puede cambiar con el nombre ue ustedes quieren
+        'nombre': 'Comunidad Tecnológica', #Se le puede cambiar con el nombre ue ustedes quieren
         'fecha_hora': datetime.datetime.now() 
     }
 

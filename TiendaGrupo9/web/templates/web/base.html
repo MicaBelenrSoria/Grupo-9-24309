@@ -16,11 +16,16 @@
 </head>
 <body>
     <header>
-        <img src="{% static '' %}" alt="tienda de informatica" class="img-logo">
+        <img src="{% static 'web/img/logo1.PNG' %}" alt="tienda de informatica" class="img-logo">
         <div class="texto-header">
-            <a href="{% url 'index' %}">Inicio</a>
-            <a href="{% url 'listado_productos' %}">Productos</a>
-            <a href="{% url 'alta_productos' %}">Alta de productos</a>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'index' %}">Inicio</a></li>
+                    <li><a href="{% url 'listado_productos' %}">Productos</a></li>
+                    <li><a href="{% url 'alta_productos' %}">Alta de productos</a></li>
+                </ul>
+            </nav>
+            
         </div>
     </header>
    

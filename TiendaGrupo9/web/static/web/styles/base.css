@@ -5,33 +5,56 @@
     font-family: 'Oswald'
 }
 
-/* Colores a elección del grupo */
 body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: #E0E0E0; /* gris claro */
+    background-color: #E0E0E0; 
 }
 
+main {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+}
+/*-----------------TITULO (Y FECHA Y HORA) INICIO-------------------------------- */
+.alineado_medio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    margin: 10px 25%;
+    color: #e8aa8c; 
+    background-color: #5e616a; 
+    border: solid 2px #B0B0B0; 
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.alineado_medio:hover {
+    background-color: #e8aa8c; 
+    color: #5e616a;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+/*--------------------TITULO (Y FECHA Y HORA) FIN-------------------------------------*/
 /*-------HEADER INICIO-----------------*/
 header {
     display: flex; 
     align-items: center; 
-    justify-content: space-evenly;
+    justify-content: space-around;
     padding: 1px 20px;
     background-color: #e8aa8c;
 }
 
 .texto-header {
 text-align: center;
+justify-content: space-between;
 color: #5e616a;
 }
 
 .img-logo {
-    width: 50%;
-    border-radius: 10px; /* Opcional: para redondear las esquinas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /*Opcional: para añadir sombra */
-    transition: transform 0.3s ease;  /*Opcional: para efecto de transición */
+    width: 25%;
 }
 
 /*--------HEADER FIN------------------*/
@@ -39,7 +62,7 @@ color: #5e616a;
 /*--------FOOTER INICIO---------------*/
 footer {
 background-color: #5e616a; /* gris */
-padding: 14px;
+padding: 15px;
 text-align: center;
 }
 
@@ -49,12 +72,13 @@ color: #e8aa8c;
 }
 /*---------FOOTER FIN-----------------*/
 
-/* Barra de nav para que se muestre horizontal y centrado */
+
+/*----------BARRA NAVEGACION INICIO--------------*/
 nav {
-    background-color: #666666; /* gris oscuro */
-    padding: 10px;
+    background-color: #e8aa8c;
+    padding: 20px;
     display: flex;
-    justify-content: center; /* Centra los elementos de navegación */
+    justify-content: space-between;
 }
 
 nav ul {
@@ -66,8 +90,7 @@ nav ul {
 }
 
 nav ul li a {
-    border-top: solid 1.5px #FFFACD; /* amarillo pastel */
-    color: white;
+    color: #5e616a;
     text-decoration: none;
     margin: 0 10px;
     padding: 10px;
@@ -75,33 +98,5 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #FFFACD; /* amarillo pastel */
-    border-top-color: #FFF8DC; /* amarillo pastel más claro */
-}
-
-
-main {
-    flex: 1;
-    text-align: center;
-    padding: 20px;
-}
-
-/* Clase para el título */
-.alineado_medio {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    margin: 10px 25%;
-    color: #333333; /* gris oscuro */
-    background-color: #FFFACD; /* amarillo pastel */
-    border: solid 2px #B0B0B0; /* gris */
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.alineado_medio:hover {
-    background-color: #FFF8DC; /* amarillo pastel más claro */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    color: white;
 }

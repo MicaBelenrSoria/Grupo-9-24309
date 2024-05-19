@@ -1,23 +1,10 @@
-h2 {
-    font-size: 30px;
-    background-color: #FFFACD; /* amarillo pastel */
-    display: inline-block;
-    border: solid 2px #B0B0B0; /* gris */
-    border-radius: 10px;
-    padding: 15px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-h2:hover {
-    background-color: #FFF8DC; /* amarillo pastel más claro */
-    transform: scale(1.05);
-}
+/*------------TEXTO INDEX INICIO------------*/
 .contenedor_txt_y_fot{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    background-color: #FFFACD; /* Fondo amarillo pastel */
+    background-color: #FFFACD; 
     box-shadow: 0px 0px 15px 0.5px ;
     border-radius: 5px;
     padding: 38px;
@@ -36,6 +23,7 @@ h2:hover {
 
 .img-small:hover {
     transform: scale(1.05); /* Opcional: para efecto hover */
+    box-shadow:  6px 10px #e8aa8c;
 }
 
 .text-center {
@@ -47,7 +35,9 @@ h2:hover {
     font-size: 20px; /* Aumentar tamaño de la fuente */
     line-height: 1.5; /* Mejorar legibilidad */
     padding: 15px; /* Espaciado interno */
-    color: #6d6d6d; /* Color de texto */
+    color: #5e616a; /* Color de texto */
     
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
 }
+
+/*------------TEXTO INDEX FIN-----------------*/
