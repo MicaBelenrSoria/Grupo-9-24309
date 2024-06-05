@@ -9,11 +9,10 @@
 
 {% block main %}
  
-    <h2>Alta de Productos</h2>
-    <form>
-        {{alta_productos_form}}
-        <br>
-        <input type="submit">
-    </form>
-
+<h2>Alta de Nuevo Producto</h2>
+<form method="POST" action="{% url 'alta_productos' %}">
+    {% csrf_token %}
+    {{ alta_producto_form.as_p }}
+    <input type="submit">
+</form>
 {% endblock %}
