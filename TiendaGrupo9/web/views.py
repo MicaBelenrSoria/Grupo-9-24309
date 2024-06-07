@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
-from django.contrib import messages
-from django.views.generic.list import ListView
 
 from .forms import *
 from .models import Producto
@@ -53,22 +51,6 @@ def alta_productos(request):
     else: # Asumo que es un POST
         form = AltaProductosForms(request.POST)
         contexto['alta_producto_form'] = form
-        
-        # Validar el form
-        if form.is_valid():
-            # Si el form es correcto, crear un nuevo producto y guardarlo
-            nuevo_producto = Producto(
-                nombre=form.cleaned_data['nombre'], 
-                precio=form.cleaned_data['precio'], 
-                descripcion=form.cleaned_data['descripcion'], 
-                imagen_url=form.cleaned_data['imagen_url']
-            )
-
-            nuevo_producto.save()
-
-            messages.success(request, 'El producto fue dado de alta con éxito')
-
-            return redirect('index')
 
         # Si el form es incorrecto, se renderiza un form con mensajes de error  
 
