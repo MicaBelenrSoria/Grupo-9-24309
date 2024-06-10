@@ -52,6 +52,12 @@ def alta_productos(request):
         form = AltaProductosForms(request.POST)
         contexto['alta_producto_form'] = form
 
-        # Si el form es incorrecto, se renderiza un form con mensajes de error  
+        # Validar el form
+        if form.is_valid():
+            # Si el form es correcto, lo redirijo a una vista segura por ejemplo index 
+            # Si el form es incorrecto, se renderiza un form con mensajes de error  
+            print(request.POST)
 
+            return redirect('index')
+    
     return render(request, 'web/alta_productos.html', contexto)
