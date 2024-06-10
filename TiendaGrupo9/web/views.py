@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
-
+from django.contrib import messages
 from .forms import *
 from .models import Producto
 import datetime
@@ -56,7 +56,7 @@ def alta_productos(request):
         if form.is_valid():
             # Si el form es correcto, lo redirijo a una vista segura por ejemplo index 
             # Si el form es incorrecto, se renderiza un form con mensajes de error  
-            print(request.POST)
+            messages.info(request, "El producto fue dado de alta ")
 
             return redirect('index')
     

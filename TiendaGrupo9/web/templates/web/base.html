@@ -25,8 +25,15 @@
                     <li><a href="{% url 'alta_productos' %}">Alta de productos</a></li>
                 </ul>
             </nav>
-            
         </div>
+
+        {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+        {% endif %}
     </header>
    
 

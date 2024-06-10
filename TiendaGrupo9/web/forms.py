@@ -21,12 +21,6 @@ class AltaProductosForms(forms.Form):
             raise ValidationError("El precio debe ser un número positivo")
         
         return precio
-
-    def clean_descripcion(self):
-        if not self.cleaned_data["descripcion"].isalpha():
-            raise ValidationError("La descripcion tiene que estar compuesto por letras")
-
-        return self.cleaned_data["descripcion"]
     
     def clean(self):
         cleaned_data = super().clean()

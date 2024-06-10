@@ -47,6 +47,18 @@ header {
     background-color: #e8aa8c;
 }
 
+header.messages{
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    padding: 15px;
+}
+
+header .messages .success {
+    background-color: rgba(0,255,0,0.3);
+    color: white;
+}
+
 .texto-header {
 text-align: center;
 justify-content: space-between;
