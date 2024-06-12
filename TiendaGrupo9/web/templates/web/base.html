@@ -23,17 +23,24 @@
                     <li><a href="{% url 'index' %}">Inicio</a></li>
                     <li><a href="{% url 'listado_productos' %}">Productos</a></li>
                     <li><a href="{% url 'alta_productos' %}">Alta de productos</a></li>
+                    <li><a href="{% url 'listado_vendedores' %}">listado de vendedores</a></li>
+                    <li><a href="{% url 'alta_vendedor' %}">alta de vendedores</a></li>
+                    
                 </ul>
+                
             </nav>
-        </div>
+            {% if messages %}
+    <ul class="message">
+        {% for message in messages %}
+            
+            <li {% if massage.tags %} class="{{message.tags}}"{% endif %}>{{ message }}</li>
+           
+        {% endfor %}
 
-        {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
-                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-        {% endif %}
+    </ul>
+
+{% endif %}
+        </div>
     </header>
    
 

@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.shortcuts import redirect
 from django.contrib import messages
+from django.shortcuts import redirect
+from .models import Producto, Vendedor
 from .forms import *
-from .models import Producto
+from django.views.generic.list import ListView
+
 import datetime
 
 def index(request):
@@ -17,30 +19,15 @@ def index(request):
     return render(request,'web/index.html', context)
 
 def listado_productos(request):
+    productos = Producto.objects.all() #.order_by("precio") es para filtrar lista segunprecio o lo que queramos
+
     contexto = {
-        'productos': [
-            {
-                'nombre': 'Teclado Noga',
-                'descripcion': 'Un teclado ergonómico con retroiluminación LED.',
-                'precio': 25.00,
-                'imagen_url': 'web/img/teclado_noga.jpg',
-            },
-            {
-                'nombre': 'Monitor Samsung',
-                'descripcion': 'Monitor de 24 pulgadas con resolución Full HD.',
-                'precio': 150.00,
-                'imagen_url': 'web/img/monitor_samsung.webp',
-            },
-            {
-                'nombre': 'Mouse Noga',
-                'descripcion': 'Mouse óptico con sensor de alta precisión.',
-                'precio': 15.000,
-                'imagen_url': 'web/img/mouse_noga.jpeg',
-            }
-        ],
+        'productos': productos,  # Pasar el queryset de productos
+        'producto_en_stock': True
     }
 
     return render(request, 'web/listado_productos.html', contexto)
+
 
 def alta_productos(request):
     contexto = {}
@@ -56,8 +43,41 @@ def alta_productos(request):
         if form.is_valid():
             # Si el form es correcto, lo redirijo a una vista segura por ejemplo index 
             # Si el form es incorrecto, se renderiza un form con mensajes de error  
-            messages.info(request, "El producto fue dado de alta ")
+            nuevo_producto = Producto(
+                nombre_producto = form.cleaned_data['nombre_producto'],
+                descripcion = form.cleaned_data['descripcion'],
+                precio = form.cleaned_data['precio'],
+                imagen_url = form.cleaned_data['imagen_url']
+                )
+            nuevo_producto.save()
 
+
+            messages.success(request, 'el articulo fue dado de alta')
             return redirect('index')
     
     return render(request, 'web/alta_productos.html', contexto)
+
+
+class VendedorListView(ListView):
+    model = Vendedor
+    context_object_name= 'vendedores'
+    template_name='web/listado_vendedores.html'
+    ordening=['dni']
+def alta_vendedor(request):
+    context ={}
+
+    if request.method == "GET":
+        formulario = AltaDocenteModelForm()
+    else:
+        formulario = AltaDocenteModelForm(request.POST)
+
+        if formulario.is_valid():
+
+            formulario.save()
+
+            messages.success(request, 'El vendedor fue dado de alta')
+            return redirect('index')
+
+
+    context["formulario"] = formulario
+    return render(request, 'web/alta_vendedor.html', context)

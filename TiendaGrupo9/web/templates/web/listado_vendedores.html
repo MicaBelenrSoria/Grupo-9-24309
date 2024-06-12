@@ -1,0 +1,28 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{% block titulo %}listado de vendedores{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'web/styles/listado_vendedores.css' %}">
+{% endblock %}
+
+{% block main %}
+    <h2>listado de vendedores</h2>
+    <div class="product-list">
+    <ul class="product-card">
+        {% for vendedor in vendedores %}
+        <div id="product-info" >
+            <li>{{ vendedor.nombre }}</li>
+            <li>{{ vendedor.apellido }}</li>
+            <li>{{ vendedor.dni }}</li>
+            <li>{{ vendedor.legajo }}</li>
+        </div>
+            <hr>
+        {% empty %}
+            <li>no hay vendedor</li>
+        {% endfor %}
+
+    </ul>
+    </div>
+{% endblock %}

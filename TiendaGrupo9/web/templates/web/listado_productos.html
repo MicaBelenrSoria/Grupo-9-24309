@@ -12,9 +12,11 @@
     <div class="product-list">
         {% for producto in productos %}
             <div class="product-card">
-                <img src="{% static producto.imagen_url %}" alt="{{ producto.nombre }}" class="product-image">
+                <img src="{{ producto.imagen_url }}" alt="{{ producto.nombre_producto }}"class="product-image">
+               
                 <div>
-                    <h3 id="product-info">{{ producto.nombre }}</h3>
+
+                    <h3 id="product-info">{{ producto.nombre_producto }}</h3>
                     <p>{{ producto.descripcion }}</p>
                     <span id="product-price">${{ producto.precio }}</span>
                 </div>

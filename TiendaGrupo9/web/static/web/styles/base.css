@@ -47,18 +47,6 @@ header {
     background-color: #e8aa8c;
 }
 
-header.messages{
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    padding: 15px;
-}
-
-header .messages .success {
-    background-color: rgba(0,255,0,0.3);
-    color: white;
-}
-
 .texto-header {
 text-align: center;
 justify-content: space-between;
@@ -111,4 +99,14 @@ nav ul li a {
 
 nav ul li a:hover {
     color: white;
+}
+.message{
+    background-color: rgb(194, 255, 186);
+    position: fixed;
+    top: 25px;
+    right: 35px;
+    list-style: none;
+    border-radius: 15px;
+    font-size: medium;
+    padding: 5PX;
 }

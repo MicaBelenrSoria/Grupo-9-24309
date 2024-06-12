@@ -1,26 +1,33 @@
 from django.db import models
 
+class Persona(models.Model):#clase para no repetir codigo(nom,ape,dni)
+    nombre = models.CharField(max_length=100, verbose_name= "Nombre :")
+    apellido = models.CharField(max_length=100, verbose_name= "Apellido :")
+    dni = models.IntegerField(verbose_name="DNI :", unique=True)
+    
+    class Meta:
+        abstract = True
+
+class Cliente(Persona):
+    cuil = models.IntegerField(verbose_name="cuil", unique=True, null=True)
+
+class Vendedor(Persona):
+    legajo = models.IntegerField(verbose_name="legajo", unique=True)
+
 class Producto(models.Model):
-    nombre = models.CharField(max_length=100, verbose_name= "Nombre del Producto")
-    descripcion = models.CharField(max_length=200, verbose_name= "Descripcion")
-    precio = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Precio")
-    imagen_url = models.URLField(verbose_name="Imagen")
-
-class Cliente(models.Model):
-    nombre = models.CharField(max_length=100, verbose_name= "Nombre del cliente")
-    apellido = models.CharField(max_length=100, verbose_name= "Apellido del Cliente")
-    dni = models.IntegerField(verbose_name="DNI del Cliente", unique=True)
-    cliente_id = models.IntegerField(verbose_name="ID del cliente", unique=True)
-
-class Vendedor(models.Model):
-    nombre = models.CharField(max_length=100, verbose_name= "Nombre del Vendedor")
-    apellido = models.CharField(max_length=100, verbose_name= "Apellido del Vendedor")
-    vendedor_id = models.IntegerField(verbose_name="ID del Vendedor", unique=True)
+    nombre_producto = models.CharField(max_length=100, verbose_name= "nombre_producto")
+    descripcion = models.CharField(max_length=200, verbose_name= "descripcion")
+    precio = models.IntegerField(verbose_name="precio", unique=True)
+    imagen_url = models.URLField(verbose_name="imagen_url")
+    vendedor = models.ForeignKey(Vendedor, on_delete=models.CASCADE, null=True, blank=True)
+    # cliente: Relación ManyToMany con el modelo Cliente, lo que indica que múltiples clientes pueden comprar múltiples productos, y viceversa.
+    cliente = models.ManyToManyField(Cliente , through = 'Pedido')
 
 class Pedido(models.Model):
-    cliente_id = models.IntegerField(verbose_name="ID del cliente", unique=True)
-    fecha_entrega = models.DateField(verbose_name="Fecha de Entrega")
-    descripcion_pedido = models.CharField(max_length=200, verbose_name= "Descripcion")
+   
+    fecha_entrega = models.DateField(verbose_name="Fecha de Entrega", auto_now_add=True)
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    producto= models.ForeignKey(Producto, on_delete =models.CASCADE)
 
  # MODELO DE DATOS 
 """

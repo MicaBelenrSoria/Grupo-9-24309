@@ -1,0 +1,27 @@
+form {
+    flex-basis: calc(50% - 10px);
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+  }
+  
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+input[type="submit"]{
+    background-color: #5e616a;
+    color: #e8aa8c;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+
+  input:hover {
+    background-color: #e8aa8c; 
+    color: #5e616a;
+    }
