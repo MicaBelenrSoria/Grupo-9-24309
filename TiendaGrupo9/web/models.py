@@ -7,12 +7,19 @@ class Persona(models.Model):#clase para no repetir codigo(nom,ape,dni)
     
     class Meta:
         abstract = True
-
+    def nombre_completo(self):
+        return f"{self.nombre} {self.apellido}"
 class Cliente(Persona):
     cuil = models.IntegerField(verbose_name="cuil", unique=True, null=True)
+    
+    def __str__(self):
+        return f"{self.nombre_completo()} | DNI={self.dni} | Cuil={self.cuil}"
 
 class Vendedor(Persona):
     legajo = models.IntegerField(verbose_name="legajo", unique=True)
+
+    def __str__(self):
+        return f"{self.nombre_completo()} | DNI={self.dni} | Legajo={self.legajo}"
 
 class Producto(models.Model):
     nombre_producto = models.CharField(max_length=100, verbose_name= "nombre_producto")
@@ -23,11 +30,17 @@ class Producto(models.Model):
     # cliente: Relación ManyToMany con el modelo Cliente, lo que indica que múltiples clientes pueden comprar múltiples productos, y viceversa.
     cliente = models.ManyToManyField(Cliente , through = 'Pedido')
 
+    def __str__(self):
+        return f"Articulo= {self.nombre_producto} | Descripcion= {self.descripcion} | precio={self.precio} | vendedor={self.vendedor.nombre_completo() if self.vendedor else '----'}"
+
 class Pedido(models.Model):
    
-    fecha_entrega = models.DateField(verbose_name="Fecha de Entrega", auto_now_add=True)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     producto= models.ForeignKey(Producto, on_delete =models.CASCADE)
+    fecha_entrega = models.DateField(verbose_name="Fecha de Entrega")
+
+    def __str__(self):
+        return f" cliente= {self.cliente} | {self.producto}"
 
  # MODELO DE DATOS 
 """
