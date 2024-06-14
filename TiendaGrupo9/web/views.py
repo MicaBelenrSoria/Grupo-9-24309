@@ -6,6 +6,11 @@ from .models import Producto, Vendedor
 from .forms import *
 from django.views.generic.list import ListView
 from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+
+
 import datetime
 
 def index(request):
@@ -24,7 +29,7 @@ def user_logout(request):
     messages.success(request, 'Sesion terminada')
            
     return redirect('index')
-
+@login_required
 def listado_productos(request):
     productos = Producto.objects.all() #.order_by("precio") es para filtrar lista segunprecio o lo que queramos
 
@@ -65,7 +70,8 @@ def alta_productos(request):
     return render(request, 'web/alta_productos.html', contexto)
 
 
-class VendedorListView(ListView):
+
+class VendedorListView(LoginRequiredMixin, ListView):
     model = Vendedor
     context_object_name= 'vendedores'
     template_name='web/listado_vendedores.html'

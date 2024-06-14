@@ -22,10 +22,10 @@
             <nav>
                 <ul>
                     <li><a href="{% url 'index' %}">Inicio</a></li>
-                    <li><a href="{% url 'listado_productos' %}">Productos</a></li>
-                    <li><a href="{% url 'alta_productos' %}">Alta de productos</a></li>
-                    <li><a href="{% url 'listado_vendedores' %}">listado de vendedores</a></li>
-                    <li><a href="{% url 'alta_vendedor' %}">alta de vendedores</a></li>
+                    {% if user.is_authenticated %} <li><a href="{% url 'listado_productos' %}">Productos</a></li>{% endif %}
+                    {% if perms.web.add_producto %}<li><a href="{% url 'alta_productos' %}">Alta de productos</a></li>{% endif %}
+                    {% if user.is_authenticated %}<li><a href="{% url 'listado_vendedores' %}">listado de vendedores</a></li>{% endif %}
+                    {% if perms.web.add_vendedor %}<li><a href="{% url 'alta_vendedor' %}">alta de vendedores</a></li>{% endif %}
                     <!-- {% if perms.web.add_vendedor %}{% endif %} -->
                 </ul>
                 
