@@ -42,19 +42,43 @@ main {
 header {
     display: flex; 
     align-items: center; 
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 1px 20px;
     background-color: #e8aa8c;
 }
-
-.texto-header {
-text-align: center;
-justify-content: space-between;
+.login-logout{
+    
+    display: flex;
+    justify-content: end;
+}
+ header .login-logout a{
+    text-decoration: none;
+    padding: 1px 5px;
+    background-color: #a6fe68;
 color: #5e616a;
+border: none;
+border-radius: 5px;
+
+}
+header .login-logout .logout{
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 1px 5px;
+    background-color: #ff0000;
+color: #5e616a;
+border: none;
+
+}
+.login-logout a:hover {
+    color: white;
 }
 
 .img-logo {
-    width: 25%;
+    
+    width: 30%;
+}
+.img-logo:hover {
+    transform: scale(1.2);
 }
 
 /*--------HEADER FIN------------------*/

@@ -5,18 +5,25 @@ from django.shortcuts import redirect
 from .models import Producto, Vendedor
 from .forms import *
 from django.views.generic.list import ListView
-
+from django.contrib.auth import logout
 import datetime
 
 def index(request):
 
     # Accede a la base de datos atraves de los modelos 
     context = {
-        'nombre': 'Comunidad Tecnológica', #Se le puede cambiar con el nombre ue ustedes quieren
+        # 'nombre': 'Comunidad Tecnológica', #Se le puede cambiar con el nombre ue ustedes quieren
         'fecha_hora': datetime.datetime.now() 
     }
 
     return render(request,'web/index.html', context)
+
+
+def user_logout(request):
+    logout(request)
+    messages.success(request, 'Sesion terminada')
+           
+    return redirect('index')
 
 def listado_productos(request):
     productos = Producto.objects.all() #.order_by("precio") es para filtrar lista segunprecio o lo que queramos
@@ -74,8 +81,10 @@ def alta_vendedor(request):
         if formulario.is_valid():
 
             formulario.save()
+            
 
-            messages.success(request, 'El vendedor fue dado de alta')
+            messages.success(request, 'el vendedor fue dado de alta')
+
             return redirect('index')
 
 

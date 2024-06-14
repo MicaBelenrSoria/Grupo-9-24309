@@ -16,7 +16,8 @@
 </head>
 <body>
     <header>
-        <img src="{% static 'web/img/logo1.PNG' %}" alt="tienda de informatica" class="img-logo">
+        <a href="{% url 'index' %}"><img src="{% static 'web/img/logo1.PNG' %}" alt="tienda de informatica" class="img-logo">
+        </a>
         <div class="texto-header">
             <nav>
                 <ul>
@@ -25,10 +26,14 @@
                     <li><a href="{% url 'alta_productos' %}">Alta de productos</a></li>
                     <li><a href="{% url 'listado_vendedores' %}">listado de vendedores</a></li>
                     <li><a href="{% url 'alta_vendedor' %}">alta de vendedores</a></li>
-                    
+                    <!-- {% if perms.web.add_vendedor %}{% endif %} -->
                 </ul>
                 
             </nav>
+            <div class="login-logout">
+                {% if not user.is_authenticated %}<a class="login" href="{% url 'login' %}">Login</a>{% endif %}
+                {% if user.is_authenticated %}<a class="logout" href="{% url 'logout' %}">Logout</a>{% endif %}
+            </div>
             {% if messages %}
     <ul class="message">
         {% for message in messages %}

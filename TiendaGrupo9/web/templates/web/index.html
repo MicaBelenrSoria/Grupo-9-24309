@@ -13,7 +13,10 @@
 <br>
 <div class="contenedor_txt_y_fot">
     <div class="text-center">
-        <p>¡Hola, {{ nombre }}! Nos complace darte la bienvenida a nuestro sitio web. En nuestra tienda, nos
+        {% if user.is_authenticated %}
+        <h2>¡Hola, {{ user.username }}!</h2>
+        {% endif %}
+        <p> Nos complace darte la bienvenida a nuestro sitio web. En nuestra tienda, nos
             dedicamos a ofrecerte lo mejor en productos y servicios de informática.
             Desde los últimos dispositivos tecnológicos hasta el soporte técnico más
             confiable, estamos aquí para ayudarte a encontrar justo lo que necesitas.

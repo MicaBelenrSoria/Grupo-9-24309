@@ -9,6 +9,7 @@ class Persona(models.Model):#clase para no repetir codigo(nom,ape,dni)
         abstract = True
     def nombre_completo(self):
         return f"{self.nombre} {self.apellido}"
+        
 class Cliente(Persona):
     cuil = models.IntegerField(verbose_name="cuil", unique=True, null=True)
     
