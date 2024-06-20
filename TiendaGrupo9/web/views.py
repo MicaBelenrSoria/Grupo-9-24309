@@ -23,6 +23,16 @@ def index(request):
 
     return render(request,'web/index.html', context)
 
+def login_view(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('index')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'web/login.html', {'form': form})
 
 def user_logout(request):
     logout(request)

@@ -12,46 +12,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 
     {% block extra_css %}{% endblock %}
-
 </head>
 <body>
     <header>
-        <a href="{% url 'index' %}"><img src="{% static 'web/img/logo1.PNG' %}" alt="tienda de informatica" class="img-logo">
-        </a>
+        <a href="{% url 'index' %}"><img src="{% static 'web/img/logo1.PNG' %}" alt="tienda de informatica" class="img-logo"></a>
         <div class="texto-header">
             <nav>
                 <ul>
                     <li><a href="{% url 'index' %}">Inicio</a></li>
                     {% if user.is_authenticated %} <li><a href="{% url 'listado_productos' %}">Productos</a></li>{% endif %}
                     {% if perms.web.add_producto %}<li><a href="{% url 'alta_productos' %}">Alta de productos</a></li>{% endif %}
-                    {% if user.is_authenticated %}<li><a href="{% url 'listado_vendedores' %}">listado de vendedores</a></li>{% endif %}
-                    {% if perms.web.add_vendedor %}<li><a href="{% url 'alta_vendedor' %}">alta de vendedores</a></li>{% endif %}
-                    <!-- {% if perms.web.add_vendedor %}{% endif %} -->
+                    {% if user.is_authenticated %}<li><a href="{% url 'listado_vendedores' %}">Listado de vendedores</a></li>{% endif %}
+                    {% if perms.web.add_vendedor %}<li><a href="{% url 'alta_vendedor' %}">Alta de vendedores</a></li>{% endif %}
                 </ul>
-                
             </nav>
             <div class="login-logout">
                 {% if not user.is_authenticated %}<a class="login" href="{% url 'login' %}">Login</a>{% endif %}
                 {% if user.is_authenticated %}<a class="logout" href="{% url 'logout' %}">Logout</a>{% endif %}
             </div>
-            {% if messages %}
-    <ul class="message">
-        {% for message in messages %}
-            
-            <li {% if massage.tags %} class="{{message.tags}}"{% endif %}>{{ message }}</li>
-           
-        {% endfor %}
-
-    </ul>
-
-{% endif %}
         </div>
     </header>
-   
 
     <main>
         <h1 class="alineado_medio">TECHNOLOGY</h1>
-
         {% block main %}{% endblock %}
     </main>
 
@@ -60,6 +43,5 @@
             <p class="texto-footer">Codo a Codo / Grupo 9 / Todos los derechos reservados.</p>
         </div>
     </footer>
-
 </body>
 </html>

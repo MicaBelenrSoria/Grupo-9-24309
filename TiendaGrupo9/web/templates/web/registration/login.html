@@ -1,6 +1,5 @@
-
-{% extends "web\base.html" %}
-{% load static%}
+{% extends "web/base.html" %}
+{% load static %}
 
 {% block titulo %}login{% endblock %}
 
@@ -9,39 +8,37 @@
 {% endblock %}
 
 {% block main %}
+<div class="container">
+    <div class="form-container">
+        <h2>Iniciar sesión</h2>
 
+        {% if form.errors %}
+        <p class="error">Tu nombre de usuario y contraseña no coinciden. Inténtalo de nuevo.</p>
+        {% endif %}
 
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+        {% if next %}
+            {% if user.is_authenticated %}
+            <p>No tienes acceso a esta página con tu cuenta actual. Por favor, inicia sesión con una cuenta que tenga acceso.</p>
+            {% else %}
+            <p>Por favor, inicia sesión para ver esta página.</p>
+            {% endif %}
+        {% endif %}
 
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login to see this page.</p>
-    {% endif %}
-{% endif %}
+        <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.username.label_tag }}
+            {{ form.username }}
+        </div>
+        <div class="form-group">
+            {{ form.password.label_tag }}
+            {{ form.password }}
+        </div>
+        <button type="submit">Login</button>
+        <input type="hidden" name="next" value="{{ next }}">
+        </form>
 
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-<table>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
-
-<input type="submit" value="login">
-<input type="hidden" name="next" value="{{ next }}">
-</form>
-
-{# Assumes you set up the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">recuperar contraseña </a></p>
-
+        <p><a href="{% url 'password_reset' %}">Recuperar contraseña</a></p>
+    </div>
+</div>
 {% endblock %}

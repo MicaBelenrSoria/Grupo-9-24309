@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Oswald'
+    font-family: 'Oswald';
 }
 
 body {
@@ -17,6 +17,7 @@ main {
     text-align: center;
     padding: 20px;
 }
+
 /*-----------------TITULO (Y FECHA Y HORA) INICIO-------------------------------- */
 .alineado_medio {
     display: flex;
@@ -38,6 +39,7 @@ main {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 /*--------------------TITULO (Y FECHA Y HORA) FIN-------------------------------------*/
+
 /*-------HEADER INICIO-----------------*/
 header {
     display: flex; 
@@ -46,58 +48,14 @@ header {
     padding: 1px 20px;
     background-color: #e8aa8c;
 }
-.login-logout{
-    
+
+.texto-header {
     display: flex;
-    justify-content: end;
-}
- header .login-logout a{
-    text-decoration: none;
-    padding: 1px 5px;
-    background-color: #a6fe68;
-color: #5e616a;
-border: none;
-border-radius: 5px;
-
-}
-header .login-logout .logout{
-    border-radius: 5px;
-    text-decoration: none;
-    padding: 1px 5px;
-    background-color: #ff0000;
-color: #5e616a;
-border: none;
-
-}
-.login-logout a:hover {
-    color: white;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.img-logo {
-    
-    width: 30%;
-}
-.img-logo:hover {
-    transform: scale(1.2);
-}
-
-/*--------HEADER FIN------------------*/
-
-/*--------FOOTER INICIO---------------*/
-footer {
-background-color: #5e616a; /* gris */
-padding: 15px;
-text-align: center;
-}
-
-.texto-footer {
-text-align: center;
-color: #e8aa8c;
-}
-/*---------FOOTER FIN-----------------*/
-
-
-/*----------BARRA NAVEGACION INICIO--------------*/
 nav {
     background-color: #e8aa8c;
     padding: 20px;
@@ -124,13 +82,48 @@ nav ul li a {
 nav ul li a:hover {
     color: white;
 }
-.message{
-    background-color: rgb(194, 255, 186);
-    position: fixed;
-    top: 25px;
-    right: 35px;
-    list-style: none;
-    border-radius: 15px;
-    font-size: medium;
-    padding: 5PX;
+
+.login-logout {
+    display: flex;
+    gap: 10px;
 }
+
+.login-logout a {
+    text-decoration: none;
+    padding: 1px 5px;
+    background-color: #a6fe68;
+    color: #5e616a;
+    border: none;
+    border-radius: 5px;
+}
+
+.login-logout .logout {
+    background-color: #ff0000;
+}
+
+.login-logout a:hover {
+    color: white;
+}
+
+.img-logo {
+    width: 30%;
+}
+
+.img-logo:hover {
+    transform: scale(1.2);
+}
+
+/*--------HEADER FIN------------------*/
+
+/*--------FOOTER INICIO---------------*/
+footer {
+    background-color: #5e616a; /* gris */
+    padding: 15px;
+    text-align: center;
+}
+
+.texto-footer {
+    text-align: center;
+    color: #e8aa8c;
+}
+/*---------FOOTER FIN-----------------*/
