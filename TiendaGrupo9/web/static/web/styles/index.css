@@ -5,9 +5,10 @@
     flex-wrap: wrap;
     align-items: center;
     background-color: #e8aa8c; 
-    box-shadow: 0px 0px 15px 0.5px ;
-    border-radius: 5px;
+    box-shadow: 0px 0px 15px 0.5px ; 
+    border-radius: 100px;
     padding: 38px;
+    
 }
 .img-small {
     display: flex;
@@ -31,12 +32,11 @@
     text-align: center;
     margin: 0 25px;
     max-width: 500px; /* Ancho máximo para evitar estiramiento */
-   
     font-size: 20px; /* Aumentar tamaño de la fuente */
     line-height: 1.5; /* Mejorar legibilidad */
     padding: 15px; /* Espaciado interno */
     color: #5e616a; /* Color de texto */
-    
+    border-radius: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
 }
 
