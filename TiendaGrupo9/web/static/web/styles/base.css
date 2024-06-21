@@ -67,7 +67,7 @@ input[type="password"] {
 button {
     background-color: #e8aa8c;
     color: white;
-    padding: 1px 50px;
+    padding: 10px 50px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -133,6 +133,7 @@ nav {
     padding: 20px;
     display: flex;
     justify-content: space-between;
+    text-align: center;
 }
 
 nav ul {
