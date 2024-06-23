@@ -10,7 +10,7 @@
 }
 .product-card {
     list-style-type: none;
-margin: 15px;
+    margin: 15px;
     display: flex;
     flex-direction: row;
     padding: 35px;

@@ -90,9 +90,9 @@ def alta_vendedor(request):
     context ={}
 
     if request.method == "GET":
-        formulario = AltaDocenteModelForm()
+        formulario = AltavendedorModelForm()
     else:
-        formulario = AltaDocenteModelForm(request.POST)
+        formulario = AltavendedorModelForm(request.POST)
 
         if formulario.is_valid():
 

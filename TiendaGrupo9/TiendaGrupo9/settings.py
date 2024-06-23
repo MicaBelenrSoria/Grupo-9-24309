@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'TiendaGrupo9.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cac_2024_24309',
+        'NAME': 'cac_2024',
         'USER': 'postgres',
-        'PASSWORD': 'Amado010',
+        'PASSWORD': 'lospiratas1711',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }

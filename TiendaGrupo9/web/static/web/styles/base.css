@@ -1,6 +1,6 @@
 * {
-    margin: 0;
-    padding: 0;
+    margin: 3px;
+    padding: 3px;
     box-sizing: border-box;
     font-family: 'Oswald';
 }
@@ -31,7 +31,9 @@ main {
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    
 }
+
 
 .alineado_medio:hover {
     background-color: #e8aa8c; 
@@ -39,7 +41,76 @@ main {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 /*--------------------TITULO (Y FECHA Y HORA) FIN-------------------------------------*/
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   align-content: center;
+}
 
+.form-container {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    width: 400px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #5e616a;
+   }
+
+
+
+.error {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #5e616a;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #e8aa8c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #d18c7e;
+}
+
+a {
+    color: #5e616a;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
 /*-------HEADER INICIO-----------------*/
 header {
     display: flex; 
@@ -47,6 +118,7 @@ header {
     justify-content: space-between;
     padding: 1px 20px;
     background-color: #e8aa8c;
+    border-radius: 20px;
 }
 
 .texto-header {
@@ -85,20 +157,23 @@ nav ul li a:hover {
 
 .login-logout {
     display: flex;
-    gap: 10px;
+    gap: 50px;
+    background-color: rgb(131, 163, 215);
+    border-radius: 15px;
 }
 
 .login-logout a {
     text-decoration: none;
-    padding: 1px 5px;
+    padding: 1px 50px;
     background-color: #a6fe68;
     color: #5e616a;
     border: none;
     border-radius: 5px;
+    background-color: rgb(131, 163, 215);
 }
 
 .login-logout .logout {
-    background-color: #ff0000;
+    background-color: #FFF;
 }
 
 .login-logout a:hover {

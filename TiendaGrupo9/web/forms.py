@@ -23,7 +23,8 @@ class AltaProductosForms(forms.Form):
         return precio
 
     def clean_descripcion(self):
-        if not self.cleaned_data["descripcion"].isalpha():
+        data= self.cleaned_data["descripcion"]
+        if not all(x.isalnum() or x.isspace() for x in data):
             raise ValidationError("La descripcion tiene que estar compuesto por letras")
 
         return self.cleaned_data["descripcion"]
@@ -37,7 +38,7 @@ class AltaProductosForms(forms.Form):
 
         return cleaned_data
 
-class AltaDocenteModelForm(forms.ModelForm):
+class AltavendedorModelForm(forms.ModelForm):
     class Meta:
         model= Vendedor
         fields = '__all__'  

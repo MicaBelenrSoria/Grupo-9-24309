@@ -4,13 +4,14 @@
 {% block titulo %}login{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'web/styles/login.css' %}">
+<link rel="stylesheet" href="{% static 'web/styles/base.css' %}">
 {% endblock %}
 
 {% block main %}
+<br>
 <div class="container">
     <div class="form-container">
-        <h2>Iniciar sesión</h2>
+        <h2>INICIAR SESION</h2>
 
         {% if form.errors %}
         <p class="error">Tu nombre de usuario y contraseña no coinciden. Inténtalo de nuevo.</p>
@@ -37,7 +38,7 @@
         <button type="submit">Login</button>
         <input type="hidden" name="next" value="{{ next }}">
         </form>
-
+        <br>    
         <p><a href="{% url 'password_reset' %}">Recuperar contraseña</a></p>
     </div>
 </div>
