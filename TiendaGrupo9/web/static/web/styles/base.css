@@ -16,7 +16,78 @@ main {
     flex: 1;
     text-align: center;
     padding: 20px;
+    justify-content:center ;
 }
+
+/*------------------------------ ESTILO DE FORMULARIO -----------------------------------*/
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.form-container {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 400px
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #5e616a;
+}
+
+.error {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #5e616a;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #e8aa8c;
+    color: white;
+    padding: 10px 50px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #d18c7e;
+}
+
+a {
+    color: #5e616a;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*------------------ FIN ESTILO DEL FORMULARIO -----------------------------------*/
 
 /*-----------------TITULO (Y FECHA Y HORA) INICIO-------------------------------- */
 .alineado_medio {
@@ -133,6 +204,7 @@ nav {
     padding: 20px;
     display: flex;
     justify-content: space-between;
+    text-align: center;
 }
 
 nav ul {
@@ -157,7 +229,7 @@ nav ul li a:hover {
 
 .login-logout {
     display: flex;
-    gap: 50px;
+    gap: 10px;
     background-color: rgb(131, 163, 215);
     border-radius: 15px;
 }
@@ -178,6 +250,7 @@ nav ul li a:hover {
 
 .login-logout a:hover {
     color: white;
+    border-radius: 15px;
 }
 
 .img-logo {
@@ -195,6 +268,7 @@ footer {
     background-color: #5e616a; /* gris */
     padding: 15px;
     text-align: center;
+    border-radius: 20px;
 }
 
 .texto-footer {

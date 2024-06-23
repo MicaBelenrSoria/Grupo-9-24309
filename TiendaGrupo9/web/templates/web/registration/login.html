@@ -1,7 +1,7 @@
 {% extends "web/base.html" %}
 {% load static %}
 
-{% block titulo %}login{% endblock %}
+{% block titulo %}Login{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'web/styles/base.css' %}">
@@ -35,7 +35,7 @@
             {{ form.password.label_tag }}
             {{ form.password }}
         </div>
-        <button type="submit">Login</button>
+        <button type="submit">LOGIN</button>
         <input type="hidden" name="next" value="{{ next }}">
         </form>
         <br>    
