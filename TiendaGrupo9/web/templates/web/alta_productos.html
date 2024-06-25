@@ -1,20 +1,20 @@
 {% extends "web/base.html" %}
 {% load static %}
 
-{% block titulo %}Alta Produto{% endblock %}
+{% block titulo %}Alta Producto{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'web/styles/alta_productos.css' %}">
 {% endblock %}
 
 {% block main %}
- 
-<h2>Alta de Nuevo Producto</h2>
-<form method="POST" action="{% url 'alta_productos' %}">
-    {% csrf_token %}
-    {{ alta_producto_form.as_p }}
-    <br>
-    <input type="submit">
-</form>
+<div class="form-alta_producto">
+    <h2>Alta de Nuevo Producto</h2>
+    <form method="POST" action="{% url 'alta_productos' %}">
+        {% csrf_token %}
+        {{ alta_producto_form.as_p }}
+        <br>
+        <input type="submit" value="Alta Producto">
+    </form>
+</div>
 {% endblock %}
-

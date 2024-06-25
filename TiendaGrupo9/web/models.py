@@ -37,7 +37,7 @@ class Producto(models.Model):
 class Pedido(models.Model):
    
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    producto= models.ForeignKey(Producto, on_delete =models.CASCADE)
+    producto= models.ForeignKey(Producto, on_delete=models.CASCADE)
     fecha_entrega = models.DateField(verbose_name="Fecha de Entrega")
 
     def __str__(self):

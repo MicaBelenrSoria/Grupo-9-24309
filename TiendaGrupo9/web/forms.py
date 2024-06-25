@@ -1,33 +1,37 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from .models import Vendedor
-class AltaProductosForms(forms.Form):
-    nombre_producto = forms.CharField(max_length=100, label="Nombre", required=True)
-    precio = forms.DecimalField(max_digits=10, decimal_places=2, label="Precio", required=True)
-    descripcion = forms.CharField(widget=forms.Textarea, label="Descripcion", required=True)
-    imagen_url = forms.URLField(label="Imagen del Producto")
+from django.contrib.auth.models import User
+from .models import Producto
 
-    def clean_nombre(self):
-        if not self.cleaned_data["nombre"].isalpha():
-            raise ValidationError("El nombre tiene que estar compuesto por letras")
 
-        self.cleaned_data["nombre"] = self.cleaned_data["nombre"].upper()
+class ProductoForm(forms.ModelForm):
+    class Meta:
+        model = Producto
+        fields = '__all__'
 
-        return self.cleaned_data["nombre"]
+class AltaProductosForms(forms.ModelForm):
+    class Meta:
+        model = Producto
+        fields = ['nombre_producto', 'descripcion', 'precio', 'imagen_url']
+    
+    def clean_nombre_producto(self):
+        nombre = self.cleaned_data.get("nombre_producto")
+        if not nombre.isalpha():
+            raise forms.ValidationError("El nombre tiene que estar compuesto por letras")
+        return nombre.upper()
 
     def clean_precio(self):        
         precio = self.cleaned_data["precio"]
-        if precio <=0:
-            raise ValidationError("El precio debe ser un número positivo")
-        
+        if precio <= 0:
+            raise forms.ValidationError("El precio debe ser un número positivo")
         return precio
 
     def clean_descripcion(self):
-        data= self.cleaned_data["descripcion"]
-        if not all(x.isalnum() or x.isspace() for x in data):
-            raise ValidationError("La descripcion tiene que estar compuesto por letras")
-
-        return self.cleaned_data["descripcion"]
+        descripcion = self.cleaned_data["descripcion"]
+        if not all(x.isalnum() or x.isspace() for x in descripcion):
+            raise forms.ValidationError("La descripción tiene que estar compuesta por letras")
+        return descripcion
     
     def clean(self):
         cleaned_data = super().clean()

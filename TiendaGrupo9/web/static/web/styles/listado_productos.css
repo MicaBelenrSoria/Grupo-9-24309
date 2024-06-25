@@ -53,3 +53,23 @@
     font-weight: bold;
 }
 
+.product-actions {
+    margin-top: 10px;
+}
+
+.btn-edit, .btn-delete {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 5px;
+    text-decoration: none;
+    color: white;
+    border-radius: 3px;
+}
+
+.btn-edit {
+    background-color: #e59400; 
+}
+
+.btn-delete {
+    background-color: #5e616a; 
+}

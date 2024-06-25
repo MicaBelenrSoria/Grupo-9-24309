@@ -21,5 +21,7 @@ urlpatterns = [
     path('alta_productos', views.alta_productos, name='alta_productos'),
     path('alta_vendedor', views.alta_vendedor, name='alta_vendedor'),
 
+    path('producto/editar/<int:producto_id>/', views.editar_producto, name='editar_producto'),
+    path('producto/eliminar/<int:producto_id>/', views.eliminar_producto, name='eliminar_producto'),
 ]
 

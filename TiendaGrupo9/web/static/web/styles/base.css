@@ -187,7 +187,7 @@ header {
     display: flex; 
     align-items: center; 
     justify-content: space-between;
-    padding: 1px 20px;
+    padding: 10px 20px;
     background-color: #e8aa8c;
     border-radius: 20px;
 }
@@ -200,48 +200,65 @@ header {
 }
 
 nav {
-    background-color: #e8aa8c;
-    padding: 20px;
     display: flex;
-    justify-content: space-between;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
 }
 
 nav ul {
     display: flex;
-    flex-direction: row;
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
+nav ul li {
+    margin: 0 15px; 
+    position: relative;
+}
+
 nav ul li a {
     color: #5e616a;
     text-decoration: none;
-    margin: 0 10px;
-    padding: 10px;
-    transition: color 0.3s ease, border-top-color 0.3s ease;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    border-radius: 10px;
+}
+
+nav ul li a i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+nav ul li a span {
+    font-size: 14px;
 }
 
 nav ul li a:hover {
-    color: white;
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
 }
 
 .login-logout {
     display: flex;
+    align-items: center;
     gap: 10px;
-    background-color: rgb(131, 163, 215);
-    border-radius: 15px;
 }
 
 .login-logout a {
     text-decoration: none;
-    padding: 1px 50px;
-    background-color: #a6fe68;
+    padding: 10px 10px;
+    background-color: #FFF;
     color: #5e616a;
-    border: none;
     border-radius: 5px;
-    background-color: rgb(131, 163, 215);
+    transition: background-color 0.3s ease;
+    ;
 }
 
 .login-logout .logout {
@@ -249,12 +266,14 @@ nav ul li a:hover {
 }
 
 .login-logout a:hover {
+    background-color: #5e616a;
     color: white;
-    border-radius: 15px;
 }
 
 .img-logo {
-    width: 30%;
+    width: 300px; /* Ajusta el tamaño según tus necesidades */
+    height: auto; /* Mantiene la proporción */
+    transition: transform 0.3s ease; /* Añadir una transición suave para el efecto hover */
 }
 
 .img-logo:hover {
@@ -276,3 +295,91 @@ footer {
     color: #e8aa8c;
 }
 /*---------FOOTER FIN-----------------*/
+
+/*------- MEDIA QUERIES INICIO -------*/
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    .texto-header {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .img-logo {
+        width: 100px; /* Ajusta el tamaño según tus necesidades */
+    }
+}
+
+@media (max-width: 480px) {
+    .hamburger {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    #navbar {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: #ff7e5f;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #navbar ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #navbar ul li {
+        margin: 10px 0;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .img-logo {
+        width: 80px; /* Tamaño del logo ajustado para pantallas pequeñas */
+    }
+
+    nav ul {
+        display: none; /* Ocultar el menú de navegación por defecto */
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .login-logout {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .login-logout a {
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+    }
+}
+
+#navbar.show {
+    display: flex;
+}
+
+/*-------- MEDIA QUERIES FIN ---------*/

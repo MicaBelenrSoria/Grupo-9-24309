@@ -1,34 +1,58 @@
-.form-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
 
-  form {
-    flex-basis: calc(50% - 10px);
-    margin-bottom: 20px;
-    padding: 10px;
-    border-radius: 5px;
-    color: black;
-  }
-  
+.form-alta_producto {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
 
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
+.form-alta_producto h2 {
+  margin-bottom: 20px;
+  color: #333333;
+}
 
-  input[type="submit"]{
-    background-color: #5e616a;
-    color: #e8aa8c;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 6px;
-  }
+.form-alta_producto form {
+  display: flex;
+  flex-direction: column;
+}
 
-  input:hover {
-    background-color: #e8aa8c; 
-    color: #5e616a;
-    }
+.form-alta_producto input[type="text"],
+.form-alta_producto input[type="password"],
+.form-alta_producto input[type="email"],
+.form-alta_producto input[type="submit"] {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-alta_producto input[type="submit"] {
+  background-color: #f5a623;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.form-alta_producto input[type="submit"]:hover {
+  background-color: #e59400;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: calc(100% - 22px);  /* Adjust width according to padding */
+}
+
+input[type="submit"] {
+  width: 100%;
+}

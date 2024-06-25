@@ -8,12 +8,13 @@
 {% endblock %}
 
 {% block main %}
- 
-<h2>Alta de vendedor</h2>
-<form method="POST" action="{% url 'alta_vendedor' %}">
-    {% csrf_token %}
-    {{ formulario.as_p }}
-    <br>
-    <input type="submit">
-</form>
+<div class="form-alta_vendedor">
+    <h2>Alta de Vendedor Nuevo</h2>
+    <form method="POST" action="{% url 'alta_vendedor' %}">
+        {% csrf_token %}
+        {{ formulario.as_p }}
+        <br>
+        <input type="submit" value="Alta Vendedor">
+    </form>
+</div>
 {% endblock %}

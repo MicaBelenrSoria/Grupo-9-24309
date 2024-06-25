@@ -8,10 +8,11 @@ from django.views.generic.list import ListView
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-
-
-
 import datetime
+from django.shortcuts import get_object_or_404
+from .models import Producto
+from .forms import AltaProductosForms
+from .forms import ProductoForm
 
 def index(request):
 
@@ -39,15 +40,11 @@ def user_logout(request):
     messages.success(request, 'Sesion terminada')
            
     return redirect('index')
+
 @login_required
 def listado_productos(request):
-    productos = Producto.objects.all() #.order_by("precio") es para filtrar lista segunprecio o lo que queramos
-
-    contexto = {
-        'productos': productos,  # Pasar el queryset de productos
-        'producto_en_stock': True
-    }
-
+    productos = Producto.objects.all()
+    contexto = {'productos': productos}
     return render(request, 'web/listado_productos.html', contexto)
 
 
@@ -86,6 +83,7 @@ class VendedorListView(LoginRequiredMixin, ListView):
     context_object_name= 'vendedores'
     template_name='web/listado_vendedores.html'
     ordening=['dni']
+
 def alta_vendedor(request):
     context ={}
 
@@ -104,5 +102,29 @@ def alta_vendedor(request):
             return redirect('index')
 
 
-    context["formulario"] = formulario
+    context ["formulario"] = formulario
     return render(request, 'web/alta_vendedor.html', context)
+
+@login_required
+def editar_producto(request, producto_id):
+    producto = get_object_or_404(Producto, id=producto_id)
+    if request.method == 'POST':
+        form = ProductoForm(request.POST, instance=producto)
+        if form.is_valid():
+            form.save()
+            return redirect('listado_productos')  # Redirige al listado de productos después de guardar
+    else:
+        form = ProductoForm(instance=producto)
+    
+    contexto = {'form': form, 'producto': producto}
+    return render(request, 'web/editar_producto.html', contexto)  # Asegúrate que el nombre de la plantilla sea correcto
+
+@login_required
+def eliminar_producto(request, producto_id):
+    producto = get_object_or_404(Producto, id=producto_id)
+    if request.method == 'POST':
+        producto.delete()
+        return redirect('listado_productos')  # Redirige al listado de productos después de eliminar
+    
+    contexto = {'producto': producto}
+    return render(request, 'web/confirmar_eliminar.html', contexto)
