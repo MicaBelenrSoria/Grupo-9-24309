@@ -1,16 +1,19 @@
 {% extends "web/base.html" %}
 {% load static %}
 
+{% block titulo %}Editar Producto{% endblock %}
+
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'web/styles/alta_productos.css' %}">
+<link rel="stylesheet" href="{% static 'web/styles/editar_producto.css' %}">
 {% endblock %}
 
-{% block content %}
-  <h2>Editar Producto</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar cambios</button>
-  </form>
-  <a href="{% url 'listado_productos' %}">Cancelar</a>
+{% block main %}
+    <h2>Editar Producto</h2>
+    <form method="post" class="editar-producto-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-guardar_cambios">Guardar cambios</button>
+    </form>
 {% endblock %}
+
+

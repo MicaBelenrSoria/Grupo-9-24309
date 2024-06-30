@@ -50,7 +50,7 @@ body {
 input[type="text"],
 input[type="password"],
 input[type="email"] {
-  width: calc(100% - 22px);  /* Adjust width according to padding */
+  width: calc(100% - 22px);  
 }
 
 input[type="submit"] {

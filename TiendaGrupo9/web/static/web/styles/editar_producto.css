@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+
+.editar-producto-form{
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.editar-producto-form h2 {
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+.editar-producto-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-guardar_cambios {
+    background-color: #f5a623;
+    color: #fff; 
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-guardar_cambios:hover {
+    background-color: #e59420; 
+}

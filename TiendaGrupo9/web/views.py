@@ -72,11 +72,9 @@ def alta_productos(request):
 
 
             messages.success(request, 'el articulo fue dado de alta')
-            return redirect('index')
+            return redirect('listado_productos')  # Redirige a la vista de listado de productos
     
     return render(request, 'web/alta_productos.html', contexto)
-
-
 
 class VendedorListView(LoginRequiredMixin, ListView):
     model = Vendedor
@@ -119,12 +117,15 @@ def editar_producto(request, producto_id):
     contexto = {'form': form, 'producto': producto}
     return render(request, 'web/editar_producto.html', contexto)  # Asegúrate que el nombre de la plantilla sea correcto
 
+
 @login_required
 def eliminar_producto(request, producto_id):
-    producto = get_object_or_404(Producto, id=producto_id)
-    if request.method == 'POST':
+    try:
+        producto = get_object_or_404(Producto, id=producto_id)
         producto.delete()
-        return redirect('listado_productos')  # Redirige al listado de productos después de eliminar
-    
-    contexto = {'producto': producto}
-    return render(request, 'web/confirmar_eliminar.html', contexto)
+        messages.success(request, 'Producto eliminado exitosamente.')
+    except Producto.DoesNotExist:
+        messages.error(request, 'El producto no existe.')
+    except Exception as e:
+        messages.error(request, f'Ocurrió un error: {e}')
+    return redirect('listado_productos')
